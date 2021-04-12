@@ -18,7 +18,7 @@ var corsOptions = {
     origin: 'http://localhost:3001',
   }
 app.use(cors(corsOptions))
-app.use('/dictionary/add',addWords)
+app.use('/dictionary/add/word',addWords)
 app.use('/dictionary',getWords)
 
 app.get('/',(req,res)=>{
