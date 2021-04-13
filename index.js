@@ -23,7 +23,7 @@ axios.defaults.headers.common['app_id'] = "03f652f5"
 axios.defaults.headers.common['app_key'] = "87260bfc05e9edfdacd3ccc4fd174a7e"
 
 var corsOptions = {
-    origin: 'https://jaisinghal02.github.io/Vocabulary-App-Frontend',
+    origin: 'https://jaisinghal02.github.io/',
   }
 app.use(cors(corsOptions))
 app.use('/dictionary/add/word',addWords)
