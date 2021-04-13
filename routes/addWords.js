@@ -6,19 +6,19 @@ const { Dictionary } = require("../models/dictionary");
 
 
 router.post('/:wordid',async (req,res)=>{
-    let result,status;
+    let result,status=200;
     try{
         const word =await checkWord(req.params.wordid)
         const wordID=word[0]["lexicalEntries"][0]["inflectionOf"][0]['id']
         const wordInfo=await getWordInfo(wordID)
         console.log("INFO->",wordInfo["results"][0]["lexicalEntries"])
-        let dict= new Dictionary({
-             _id: wordID,
-             lexicalEntries: wordInfo["results"][0]["lexicalEntries"]
-            })
+        
         try{
-            result=await dict.save();
-            status=200
+                let dict= new Dictionary({
+                    _id: wordID,
+                    lexicalEntries: wordInfo["results"][0]["lexicalEntries"]
+                   })
+                result= dict.save();
         }
         catch(err){
             console.log(err.message)
